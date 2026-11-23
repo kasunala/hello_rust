@@ -124,6 +124,18 @@ fn tut_run(){
     //3- When owner goes out of scope, the value will be dropped
     //s2 cannot be accessed ot it is out of scope outside the main function
 
+    //Creating references
+    let mut _x = 5;
+    let _r = &mut _x; //referencing to original owner(_x) of value(5)
+
+    //Increment value
+
+    *_r += 1;
+
+
+    println!("_x is {}",_x); //x is mutable if reference as mutable, 1 mutable reference you can change to _r here without using another println!
+    //println!("_r is {}",_r); // you can only have 1 mutable reference and many immutable referances
+
 }
 
 //hoisting means the function can be defined anywhere regardless of the main function
@@ -177,3 +189,13 @@ fn calculate_length(s: &String) -> usize{//output unassigned size
 //1- Each value of rust has a variable that's its owner
 //2- There can be only one owner at a time
 //3- When owner goes out of scope, the value will be dropped
+
+//Reference and borrowing
+//Safety and performance
+
+//Understanding references
+//References: enable you to borrow value without taking ownership
+// there are immutable and mutable references
+//Create reference by adding "&"
+
+
