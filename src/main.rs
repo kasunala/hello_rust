@@ -83,4 +83,65 @@ fn tut_run(){
     let slice: &str = &string[0..5];
     println!("slice value {}",slice);
 
+    //Functions
+    //snake case my_function
+
+    hello_world();
+    tell_height(160);
+    human_id("Kasun",37,180.52);
+
+    //code block
+
+    let _b: i32 = {
+      let price:i32 = 10;
+        let units:i32 = 50;
+        price * units
+    };
+
+    println!("code block results: {}",_b);
+
+    let y = add(1,3);
+    println!("y is {}",y);
+
+    let weight = 70.0;
+    let height:f64 = 1.5;
+
+    let bmi:f64 = calculate_bmi(weight,height);
+    println!("bmi is {}",bmi);
+}
+
+//hoisting means the function can be defined anywhere regardless of the main function
+fn hello_world() {
+    println!("Hello, world!");
+}
+
+fn tell_height(height:u32){
+    println!("my height is {} cm",height);
+}
+
+fn human_id(name:&str, age:u32, height: f32){
+    println!("my name is {} and age {}, height {} cm",name,age,height);
+}
+
+//Expression and Statement
+//Expression: Anything that returns a value
+//Statement: Anything that does not return a value
+
+//Expressions
+//5
+//true for fals
+//add(1,2)
+//if conditions
+//code block
+
+//function with exp.
+fn add(a:i32, b:i32) -> i32 {
+    a+b
+}
+
+//Statements
+//Always ends with ; like variable declarations , functional definitions, control flow statements
+
+fn calculate_bmi(weight_kg: f64, height_m: f64)->f64{
+    weight_kg/(weight_kg + height_m)
 }
