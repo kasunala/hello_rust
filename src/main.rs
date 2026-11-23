@@ -108,6 +108,22 @@ fn tut_run(){
 
     let bmi:f64 = calculate_bmi(weight,height);
     println!("bmi is {}",bmi);
+
+
+    //1- Each value of rust has a variable that's its owner
+    let s1 =String::from("RUST");
+    let len = calculate_length(&s1); //passing reference of s1
+
+    println!("length is {}",len);
+
+    //2- There can be only one owner at a time
+    //trasfering ownership, now you cannot print s1 becasue it is owned by s2
+    let s2 = s1;
+    println!("s2 {}",s2);
+
+    //3- When owner goes out of scope, the value will be dropped
+    //s2 cannot be accessed ot it is out of scope outside the main function
+
 }
 
 //hoisting means the function can be defined anywhere regardless of the main function
@@ -144,4 +160,20 @@ fn add(a:i32, b:i32) -> i32 {
 
 fn calculate_bmi(weight_kg: f64, height_m: f64)->f64{
     weight_kg/(weight_kg + height_m)
+
 }
+
+fn calculate_length(s: &String) -> usize{//output unassigned size
+    s.len()
+}
+
+//Ownership, borrowing and references
+
+//Ownership
+//c and c++ -> memory management control issues
+//garbage collector solve this but with cost of slow performance , it pauses the program
+
+//3 rules of ownership
+//1- Each value of rust has a variable that's its owner
+//2- There can be only one owner at a time
+//3- When owner goes out of scope, the value will be dropped
