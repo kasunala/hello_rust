@@ -1,4 +1,6 @@
 //my hello world program
+
+const Y:i32 = 10;
 fn main() {
     /*multi 
     line comments 
@@ -136,6 +138,15 @@ fn tut_run(){
     println!("_x is {}",_x); //x is mutable if reference as mutable, 1 mutable reference you can change to _r here without using another println!
     //println!("_r is {}",_r); // you can only have 1 mutable reference and many immutable referances
 
+    //Constants
+    //are immutable and cannot be mutable
+    //Should be captital, screaming snake case
+    //can be defined in outside main, in gloabal scope
+
+    //const Y:i32 = 10;
+    println!("Y is {}",Y);
+    
+
 }
 
 //hoisting means the function can be defined anywhere regardless of the main function
@@ -198,4 +209,8 @@ fn calculate_length(s: &String) -> usize{//output unassigned size
 // there are immutable and mutable references
 //Create reference by adding "&"
 
+//Immutable and Mutable borrow scenario
+//Bank account structure, to check balance(immutable) and to withdraw balance(mutable)
+//Simultanious imutable and mutable borrowing not allowed in same scope.
 
+//Constants
