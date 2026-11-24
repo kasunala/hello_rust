@@ -187,6 +187,68 @@ fn tut_run(){
     let number = if condition {5} else {6};
     println!("number is {number}");
     //data types in each arms should be same to be compatible with number variable
+
+    //Loops
+    //Loop
+    //while
+    //for
+
+    //Loop
+    let mut counter = 0;
+
+   let results = loop {
+        println!("in loop");
+
+        counter += 1;
+
+        if counter == 10 {
+            break counter*2; //value of expression after break will return
+        }
+    };
+     println!("results is {results}");
+
+    //Loop labels
+    //break and continue statement applies to innermost loop by default
+
+        let mut count = 0;
+        'counting_up: loop {   //'counting_up: label
+            println!("count = {count}");
+            let mut remaining = 10;
+
+            loop {
+                println!("remaining = {remaining}");
+                if remaining == 9 {
+                    break;
+                }
+                if count == 2 {
+                    break 'counting_up;
+                }
+                remaining -= 1;
+            }
+
+            count += 1;
+        }
+        println!("End count = {count}");
+
+    //while loops
+    let mut number = 3;
+    while number !=0{
+        println!("number is {}",number);
+        number -= 1;
+        //break;
+    }
+
+    //for loop
+    let a = [10, 20, 30, 40, 50];
+
+    for elements in a {
+        println!("elements are {}",elements);
+    }
+
+
+
+
+
 }
 
 //hoisting means the function can be defined anywhere regardless of the main function
