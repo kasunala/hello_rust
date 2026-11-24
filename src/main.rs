@@ -356,7 +356,59 @@ fn tut_run(){
     let home = IpAddr::V4(127,0,0,1);
     let loopback = IpAddr::V6(String::from("::1"));
 
+    //Error handling
+    //Approach 1 - Option<T>
+    // enum Option<T>{
+    //     Some(T),//represents a value
+    //     None,//represents no value
+    // }
+    // //Approach 2 - Result<T, E>
+    // enum Result<T, E>{
+    //     Ok(T),
+    //     Err(E),
+    // }
+
+    //Example 1
+    let result_option= divide(10.0,2.0);
+
+    match  result_option {
+      Some(x) => println!("result: {x}"),
+      None => println!("Cannot divide by 0"),
+    }
+
+    //Example 2
+    let result_result = divide1(10.0, 20.0);
+
+    match result_result{
+        Ok(result) => println!("result: {}",result),
+        Err(err) => println!("Error: {}",err),
+
+    }
+
 }
+
+//Example 1
+fn divide(num: f64, denom:f64) -> Option<f64> {
+
+    if denom == 0.0 {
+        None
+    }else {
+        Some(num / denom)
+    }
+
+}
+
+//Example 2
+fn divide1(num: f64, denom:f64) -> Result<f64, String> {
+
+    if denom == 0.0 {
+        Err("Cannot divide by 0".to_string())
+    }else {
+        Ok(num / denom)
+    }
+
+}
+
 
 //hoisting means the function can be defined anywhere regardless of the main function
 fn hello_world() {
