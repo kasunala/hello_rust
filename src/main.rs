@@ -145,8 +145,17 @@ fn tut_run(){
 
     //const Y:i32 = 10;
     println!("Y is {}",Y);
-    
 
+    //Shadowing
+    //Second variable defined will overshadow the first variable and compiler will see only the second variable
+    let x1 = 5;
+    let x1 = x1+2; //second x1 overshadowing the first variable
+
+    {
+        let x1 = x1 * 2;
+        println!("x1 {}",x1);
+    }
+    
 }
 
 //hoisting means the function can be defined anywhere regardless of the main function
