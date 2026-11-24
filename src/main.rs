@@ -155,7 +155,38 @@ fn tut_run(){
         let x1 = x1 * 2;
         println!("x1 {}",x1);
     }
-    
+
+    //Control flows in Rust
+    //1-Conditions [if...Else]
+    //2-Repeating actions [Loops]
+
+    //if expression
+    //
+    // let age: u16 = 18;
+    //
+    // if age >= 18 {
+    //     println!("You are old enough to drive!");
+    // } else {
+    //     println!("You are not enough to drive!");
+    // }
+    //
+
+    //else if
+    let number = 6;
+
+    if number % 4 == 0 {
+      println!("number is divisible by 4");
+    } else if number % 3 == 0 {
+        println!("number is divisible by 3");
+    } else {
+        println!("number is not divisible by 4 or 3"); //arms
+    }
+
+    //using if in let statement
+    let condition = true;
+    let number = if condition {5} else {6};
+    println!("number is {number}");
+    //data types in each arms should be same to be compatible with number variable
 }
 
 //hoisting means the function can be defined anywhere regardless of the main function
