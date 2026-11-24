@@ -1,5 +1,7 @@
 //my hello world program
 
+use std::net::AddrParseError;
+
 const Y:i32 = 10;
 fn main() {
     /*multi 
@@ -293,7 +295,6 @@ fn tut_run(){
     };
 
     //tuple structs
-
     struct Color (i32,i32,i32);
     struct Point (i32,i32,i32);
 
@@ -304,6 +305,56 @@ fn tut_run(){
     //Used when you need a type to implement a trait without data
     struct AlwaysEqual;
     let subject: AlwaysEqual = AlwaysEqual;
+
+    //Enums, group values of data
+
+    enum IpAddrKind {
+        V4,
+        V6
+    }
+
+    let four = IpAddrKind::V4;
+    let six = IpAddrKind::V6;
+
+    //use enum in a function
+    fn route(ip_kind: IpAddrKind){}
+
+    route(IpAddrKind::V4);
+    route(IpAddrKind::V6);
+
+    //Using struct to store enum values
+    struct address_data{
+        kind: IpAddrKind,
+        address: String
+    }
+
+    let home:address_data = address_data{
+        kind: IpAddrKind::V4,
+        address: String::from("127.0.0.1")
+    };
+
+    let loopback:address_data = address_data {
+        kind: IpAddrKind::V6,
+        address: String::from("::1")
+    };
+
+    //Using enum to store data
+    // enum IpAddr {
+    //     V4(String),
+    //     V6(String)
+    // }
+    //
+    // let home = IpAddr::V4(String::from("127.0.0.1"));
+    // let loopback = IpAddr::V6(String::from("::1"));
+
+    //Enhanced enums
+    enum IpAddr {
+        V4(u8, u8, u8, u8), //complex types
+        V6(String)
+    }
+
+    let home = IpAddr::V4(127,0,0,1);
+    let loopback = IpAddr::V6(String::from("::1"));
 
 }
 
