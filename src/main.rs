@@ -245,9 +245,65 @@ fn tut_run(){
         println!("elements are {}",elements);
     }
 
+    //Structs
 
+    //tuple
+    let rect = (200,400);
 
+    struct Book{
+        title: String,
+        author: String,
+        pages: u32,
+        available: bool,
+    }
 
+    struct User{
+        active: bool,
+        username: String,
+        email: String,
+        sign_in_count: u64,
+    }
+
+  let mut user1: User = User{ //make the instant muatable
+      active: true,
+      username: String::from("someuser"),
+      email: String::from("someone@gmail.com"),
+      sign_in_count: 1,
+  };
+
+    //user1.email = String::from("anotheremail");
+
+    println!("email is {}",user1.email);
+
+    //return struct from function
+    fn builder_user(email: String, username: String) -> User {
+
+        User{
+            active: true,
+            email,
+            username,
+            sign_in_count: 1,
+        }
+    }
+
+    //create instance from another instance
+    let user2: User = User{
+        email: String::from("newemail@g.com"),
+        ..user1 //rest of the fields same as user1
+    };
+
+    //tuple structs
+
+    struct Color (i32,i32,i32);
+    struct Point (i32,i32,i32);
+
+    let black = Color(0,0,0);
+    let white = Color(255,255,255);
+
+    //Unit-Like structs
+    //Used when you need a type to implement a trait without data
+    struct AlwaysEqual;
+    let subject: AlwaysEqual = AlwaysEqual;
 
 }
 
