@@ -448,10 +448,14 @@ fn tut_run(){
 
     let team_name = String::from("Blue");
     //getting score from Key(team_name)
-    let score = scores.get(&team_name).copied().unwrap_or(0);
+    let score = scores.get(&team_name);
+    //This doesn't handle Option<T>
+    println!("team_score is {:?}",score);
+    //handle Option<T> by unwrapping Some
+    println!("team_score unwrapped is {}",score.unwrap());
 
     for (key, value) in &scores {
-        
+
         println!("{}: {}", key, value);
     }
 
