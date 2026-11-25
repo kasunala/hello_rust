@@ -1,5 +1,6 @@
 //my hello world program
 
+use std::collections::HashMap;
 use std::net::AddrParseError;
 
 const Y:i32 = 10;
@@ -384,6 +385,76 @@ fn tut_run(){
         Err(err) => println!("Error: {}",err),
 
     }
+
+    //Collection types
+    //Vectors
+    //UTF8
+    //Hash Maps
+
+    //Vectors , Vect<T>
+    //Same data type - homogenious, can grow or shrink
+
+
+
+    //push at once using vec! macro
+    let the_v = vec![1,2,3];
+
+    //push one by one
+    let mut v:Vec<i32> = Vec::new();
+    v.push(1);
+    v.push(2);
+
+    println!("{:?}",v);
+
+    //access
+    println!("third {}",the_v[2]);
+
+    let second:&i32 = &the_v[1]; //direct indexing
+
+    println!("second is {}",second);
+
+    let third= the_v.get(1);
+
+    match third {
+        Some(third) => println!("third is {}", third),
+        None => println!("There is no third"),
+    }
+
+    //UTF8 encoded text
+    //Stores strings
+
+    let s:String = "whatever".to_string();
+
+    let s:String = String::from("whatever");
+
+    //Mutate and push
+    let mut s:String = String::from("foo");
+
+    s.push_str("bar");//pushing string
+
+    println!("vale of s = {}",s);
+
+    s.push('!');//push single char
+
+    println!("vale of s = {}",s); //can combine strings and chars with +, check doc for requirements
+
+    //hash maps - HashMap<K, V>
+    //stores key values
+    use std::collections::HashMap;
+    let mut scores:HashMap<String,i32> = HashMap::new();
+
+    scores.insert(String::from("Blue"),10);
+    scores.insert(String::from("Yellow"),50);
+
+    let team_name = String::from("Blue");
+    //getting score from Key(team_name)
+    let score = scores.get(&team_name).copied().unwrap_or(0);
+
+    for (key, value) in &scores {
+        
+        println!("{}: {}", key, value);
+    }
+
 
 }
 
